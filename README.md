@@ -1,2 +1,2 @@
 # myLeetcodeSolution
-My LeetCode solution written by Python.
+My LeetCode solution written by Python and JavaScript.
