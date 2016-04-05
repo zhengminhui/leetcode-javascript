@@ -1,30 +1,13 @@
+/**
+ * @param {number} n
+ * @return {number}
+ * A bulb ends up on iff is switched an odd number of times.
+ * For 1st bulb: 1*1 will change 1 time, off => on
+ * for 2nd bulb: 1*2, 2*1, change 2 times, off => on ==> off
+ * for 3rd bulb: 1*3, 3*1, change 2 times, off => on ==> off
+ * for 4th bulb: 1*4, 2*2, 4*1, change 3 times, off => on ==> off => on
+ * so only squre number will switch odd times, so this problem has changed to find tge square numbers.
+ */
 var bulbSwitch = function(n) {
-    var bulb = [];
-    // for (var i = 0; i < n; i++) {
-    //     bulb.push(false);
-    // };
-    //first round
-    for (var i = 0; i < n; i++) {
-        bulb[i] = true;
-    };
-    //from second round to n-th round
-
-    for (var i = 1; i < n; i+= 1 ){
-    	for(var j = i; j<n; j += i+1 ){
-    		bulb[j] = !bulb[j];
-    	}
-
-    }
-    	console.log(bulb)
-    var result = 0;
-    for(var i=0; i<n;i++){
-    	if(bulb[i] === true){
-    		result ++;
-    	}
-    }
-
-    return result;
-
+    return Math.floor(Math.sqrt(n));
 };
-
-console.log(bulbSwitch(9))
