@@ -2,7 +2,8 @@
  * @param {number} x
  * @param {number} y
  * @return {number}
- * use xor is the best solution. xor will get a new binary number 0101^1100 -> 1001. Then remove the 0s will get how many 1s which is the hamming distance.
+ * use xor is the best solution. xor will get a new binary number 0101^1100 -> 1001. 
+ * Then remove the 0s will get how many 1s which is the hamming distance.
  */
 var hammingDistance = function(x, y) {
   return (x^y).toString(2).replace(/0/g,'').length;
