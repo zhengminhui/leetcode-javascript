@@ -10,8 +10,8 @@
  * @param {TreeNode} t2
  * @return {TreeNode}
  * t1 && t1.left
- * if t1 !== null, will return t1.left
- * else return null
+ * if both true, will return latter(t1.left)
+ * if t1 is falsy return t1
  */
 var mergeTrees = function(t1, t2) {
   if (!t1 && !t2) return null;
