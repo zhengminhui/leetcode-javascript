@@ -14,24 +14,22 @@
  * trick: when get the mid number, don't use (low + high)/2, will cause overflow, 
  * should use low + (high - low)/2;
  */
-var solution = function(isBadVersion) {
+var solution = function (isBadVersion) {
   /**
    * @param {integer} n Total versions
    * @return {integer} The first bad version
    */
-  return function(n) {
-    var lb = 1,
-      ub = n;
-    while (lb < ub) {
-      var cur = Math.floor(lb + (ub - lb) / 2);
-      // if cur is bad, check left part (inclusive, since this version may be the answer)
-      if (isBadVersion(cur)) {
-        ub = cur;
+  return function (n) {
+    var low = 0;
+    var high = n;
+    while (low < high) {
+      var mid = Math.floor(low + (high - low) / 2);
+      if (isBadVersion(mid)) {
+        high = mid;
       } else {
-        // if cur is good, check right part
-        lb = cur + 1;
+        low = mid + 1;
       }
     }
-    return ub;
+    return low;
   };
 };
