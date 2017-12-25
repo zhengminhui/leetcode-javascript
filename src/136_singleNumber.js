@@ -5,11 +5,9 @@
  * Since a^a itself will equal to 0.
  */
 var singleNumber = function(nums) {
-    var ans = 0;
-    for (var i = 0; i < nums.length; i++) {
-        ans ^= nums[i];
-    }
-    return ans;
+  var res = 0;
+  for (var i = 0; i < nums.length; i++) {
+    res ^= nums[i];
+  }
+  return res;
 };
-
-console.log(singleNumber([1, 1, 2]))
