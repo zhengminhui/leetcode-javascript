@@ -7,10 +7,16 @@
  * beware of the order of ||. a||b will always equal to a if a is not 0/null/NaN.
  */
 var containsDuplicate = function(nums) {
-    var dict = {};
-    for (var i = 0, len = nums.length; i < len; i++) {
-        dict[nums[i]] = dict[nums[i]] + 1 || 1;
-        if (dict[nums[i]] > 1) return true;
-    }
+  if (nums.length <= 1) {
     return false;
+  }
+  var numsMap = new Map();
+  for (var i = 0; i < nums.length; i++) {
+    if (numsMap.has(nums[i])) {
+      return true;
+    } else {
+      numsMap.set(nums[i], 1);
+    }
+  }
+  return false;
 };
