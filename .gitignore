@@ -3,8 +3,7 @@
 
 *.iml
 
-JavaScript/.idea/.name
 
-.idea/.name
+.idea
 .DS_Store
 vscode
