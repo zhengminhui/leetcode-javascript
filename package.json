@@ -1,0 +1,29 @@
+{
+  "name": "leetcode-javascript",
+  "version": "1.0.0",
+  "description": "My LeetCode solution written by JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "solution",
+    "leetcode"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhengminhui/leetcode-javascript.git"
+  },
+  "author": "zhengminhui <zhmh1025@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhengminhui/leetcode-javascript/issues"
+  },
+  "homepage": "https://github.com/zhengminhui/leetcode-javascript#readme",
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
