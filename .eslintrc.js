@@ -8,5 +8,6 @@ module.exports = {
     'no-plusplus': 0,
     'no-param-reassign': 0,
     'no-use-before-define': 0,
+    'linebreak-style': 0, // compatible with mac and windows
   },
 };
