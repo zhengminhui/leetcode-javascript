@@ -9,11 +9,9 @@ var numJewelsInStones = function(J, S) {
   // for (let i=0; i< S.length;  i++) {
   //   if(jewels.has(S[i])) {
   //     res += 1;
-  //   }    
+  //   }
   // }
   // return res;
-  
-  return S.split('').filter((char) => {
-    return J.includes(char);
-  }).length;
+
+  return S.split('').filter(char => J.includes(char)).length;
 };
