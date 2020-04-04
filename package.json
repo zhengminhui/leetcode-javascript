@@ -22,8 +22,8 @@
   },
   "homepage": "https://github.com/zhengminhui/leetcode-javascript#readme",
   "devDependencies": {
-    "eslint": "^5.12.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.20.2"
   }
 }
