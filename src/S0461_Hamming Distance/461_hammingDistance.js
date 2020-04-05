@@ -5,8 +5,8 @@
  * use xor is the best solution. xor will get a new binary number 0101^1100 -> 1001. 
  * Then remove the 0s will get how many 1s which is the hamming distance.
  */
-var hammingDistance = function(x, y) {
-  return (x^y).toString(2).replace(/0/g,'').length;
+var hammingDistance = function (x, y) {
+  return (x ^ y).toString(2).replace(/0/g, '').length;
 }
 
 // var hammingDistance = function(x, y) {
@@ -45,4 +45,4 @@ var hammingDistance = function(x, y) {
 //   return [x, y];
 // }
 
-console.log(hammingDistance(1,4))
+console.log(hammingDistance(1, 4))

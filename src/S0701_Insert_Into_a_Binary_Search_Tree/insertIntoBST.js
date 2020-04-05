@@ -10,7 +10,7 @@
  * @param {number} val
  * @return {TreeNode}
  */
-var insertIntoBST = function(root, val) {
+var insertIntoBST = function (root, val) {
   if (root === null) return root;
 
   const curr = root.val;
