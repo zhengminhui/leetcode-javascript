@@ -10,5 +10,6 @@ module.exports = {
     'no-use-before-define': 0,
     'linebreak-style': 0, // compatible with mac and windows
     'operator-assignment': 0,
+    'no-bitwise': 0,
   },
 };
