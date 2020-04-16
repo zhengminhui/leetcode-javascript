@@ -11,5 +11,6 @@ module.exports = {
     'linebreak-style': 0, // compatible with mac and windows
     'operator-assignment': 0,
     'no-bitwise': 0,
+    'no-continue': 0,
   },
 };
