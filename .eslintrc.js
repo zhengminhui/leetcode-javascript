@@ -12,5 +12,6 @@ module.exports = {
     'operator-assignment': 0,
     'no-bitwise': 0,
     'no-continue': 0,
+    'object-curly-newline': 0,
   },
 };
