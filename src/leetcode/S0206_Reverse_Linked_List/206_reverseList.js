@@ -12,7 +12,7 @@
  * reverse of one element: the element
  * reverse of an n element list: reverse of the second element followed by the first element
  */
-var reverseListInteration = function (head) {
+var reverseListIteration = function (head) {
     var pre = null;
     var cur = head;
     var nxt;
@@ -25,13 +25,13 @@ var reverseListInteration = function (head) {
     return pre;
 };
 
-var reverseListRecurrsive = function (head) {
+var reverseListRecursive = function (head) {
     var first = head;
     if (first === null || first.next === null) {
         return first;
     }
     var second = first.next;
-    var reversedSecond = reverseListRecurrsive(second);
+    var reversedSecond = reverseListRecursive(second);
     first.next = null;
     second.next = first;
     return reversedSecond;
