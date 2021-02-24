@@ -17,7 +17,9 @@ var isSymmetric1 = function (root) {
     if (left === null || right === null) return left === right;
     if (left.val !== right.val) return false;
     // has children
-    return checkEqual(left.left, right.right) && checkEqual(left.right, right.left);
+    return (
+      checkEqual(left.left, right.right) && checkEqual(left.right, right.left)
+    );
   };
 
   return checkEqual(root.left, root.right);
@@ -39,12 +41,10 @@ var isSymmetric2 = function (root) {
     }
     if (right.val !== left.val) return false;
 
-    if (left !== null && right !== null) {
-      stack.push(left.left);
-      stack.push(right.right);
-      stack.push(left.right);
-      stack.push(right.left);
-    }
+    stack.push(left.left);
+    stack.push(right.right);
+    stack.push(left.right);
+    stack.push(right.left);
   }
   return true;
 };
