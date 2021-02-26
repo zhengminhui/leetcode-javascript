@@ -13,5 +13,7 @@ module.exports = {
     'no-bitwise': 0,
     'no-continue': 0,
     'object-curly-newline': 0,
+    'no-console': 0,
+    'no-constant-condition': 0,
   },
 };

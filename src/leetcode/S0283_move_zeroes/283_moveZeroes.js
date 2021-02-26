@@ -3,7 +3,7 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  * Time Complexity O(n)
  */
-var moveZeroes = function(nums) {
+var moveZeroes = function (nums) {
   var head = 0;
   var tail = nums.length - 1;
   while (head < tail) {
