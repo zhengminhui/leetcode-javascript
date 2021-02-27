@@ -3,7 +3,7 @@
  */
 var MinStack = function () {
   this.stack = [];
-  this.minNum = Infinity;
+  this.min_stack = [Number.POSITIVE_INFINITY];
 };
 
 /** 
@@ -12,18 +12,15 @@ var MinStack = function () {
  */
 MinStack.prototype.push = function (x) {
   this.stack.push(x);
-  this.minNum = Math.min(x, this.minNum);
+  this.min_stack.push(Math.min(this.min_stack[this.min_stack.length - 1], x));
 };
 
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function () {
-  var top = this.stack[this.stack.length - 1];
-  this.stack.pop();
-  if (top === this.minNum) {
-    this.minNum = Math.min(...this.stack);
-  }
+  this.min_stack.pop();
+  return this.stack.pop();
 };
 
 /**
@@ -37,19 +34,14 @@ MinStack.prototype.top = function () {
  * @return {number}
  */
 MinStack.prototype.getMin = function () {
-  return this.minNum;
+  return this.min_stack[this.min_stack.length - 1];
 };
 
-/** 
+/**
  * Your MinStack object will be instantiated and called as such:
  * var obj = Object.create(MinStack).createNew()
  * obj.push(x)
  * obj.pop()
  * var param_3 = obj.top()
  * var param_4 = obj.getMin()
- * Test case
- * ["MinStack","push","push","push","getMin","pop","top","getMin"]
- * [[],[-2],[0],[-3],[],[],[],[]]
- * ["MinStack","push","push","top","getMin","pop","getMin","top"]
- * [[],[1],[2],[],[],[],[],[]]
  */
