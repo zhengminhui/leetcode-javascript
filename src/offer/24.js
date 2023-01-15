@@ -26,12 +26,12 @@ const reverseList = function (head) {
 };
 
 const recursive = function (head) {
-  let first = head;
+  const first = head;
   if (!first || !first.next) {
     return first;
   }
-  let second = first.next;
-  let reverseSecond = recursive(second);
+  const second = first.next;
+  const reverseSecond = recursive(second);
   first.next = null;
   second.next = first;
   return reverseSecond;

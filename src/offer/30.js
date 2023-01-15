@@ -1,10 +1,10 @@
 /**
- * initialize your data structure here.\
+ * initialize your data structure here.
  * 时间 O(1) 空间 O(n)
  */
 var MinStack = function () {
-  this.min_stack = [Number.POSITIVE_INFINITY];
   this.stack = [];
+  this.minStore = [];
 };
 
 /**
@@ -12,15 +12,24 @@ var MinStack = function () {
  * @return {void}
  */
 MinStack.prototype.push = function (x) {
+  if (!this.stack) {
+    this.stack = [];
+    this.minStore = [];
+  }
   this.stack.push(x);
-  this.min_stack.push(Math.min(this.min_stack[this.min_stack.length - 1], x));
+  if (this.minStore.length === 0) {
+    this.minStore.push(x);
+  } else {
+    const smaller = Math.min(this.minStore[this.minStore.length - 1], x);
+    this.minStore.push(smaller);
+  }
 };
 
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function () {
-  this.min_stack.pop();
+  this.minStore.pop();
   return this.stack.pop();
 };
 
@@ -35,7 +44,7 @@ MinStack.prototype.top = function () {
  * @return {number}
  */
 MinStack.prototype.min = function () {
-  return this.min_stack[this.min_stack.length - 1];
+  return this.minStore[this.minStore.length - 1];
 };
 
 /**

@@ -6,7 +6,7 @@ var MinStack = function () {
   this.min_stack = [Number.POSITIVE_INFINITY];
 };
 
-/** 
+/**
  * @param {number} x
  * @return {void}
  */

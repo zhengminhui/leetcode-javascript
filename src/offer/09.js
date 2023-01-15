@@ -1,6 +1,6 @@
 var CQueue = function () {
-  this.stackIn = [];
-  this.stackOut = [];
+  this.inStack = [];
+  this.outStack = [];
 };
 
 /**
@@ -8,25 +8,27 @@ var CQueue = function () {
  * @return {void}
  */
 CQueue.prototype.appendTail = function (value) {
-  if (!this.stackIn) {
-    this.stackIn = [];
+  if (!this.inStack) {
+    this.inStack = [];
   }
-  this.stackIn.push(value);
+  this.inStack.push(value);
 };
 
 /**
  * @return {number}
  */
 CQueue.prototype.deleteHead = function () {
-  // stackOut 只负责删，当执行删除操作时，把 in 里的元素pop 之后插入
-  if (this.stackOut.length) {
-    return this.stackOut.pop();
-  } else {
-    while (this.stackIn.length) {
-      this.stackOut.push(this.stackIn.pop());
-    }
-    return this.stackOut.length ? this.stackOut.pop() : -1;
+  // 如果当前还有，则 outStack 只负责删，减少开销
+  if (this.outStack.length) {
+    return this.outStack.pop();
   }
+  // 走到这里，说明 out 没有了， 检查 in，还有的话则进行一次转存
+  // 把 in 里的元素pop 之后插入
+  while (this.inStack.length) {
+    this.outStack.push(this.inStack.pop());
+  }
+  // 最后检查转存
+  return this.outStack.length ? this.outStack.pop() : -1;
 };
 
 /**

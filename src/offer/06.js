@@ -10,10 +10,10 @@
  * @return {number[]}
  */
 var reversePrint = function (head) {
-  const arr = [];
+  const res = [];
   while (head) {
-    arr.unshift(head.val);
+    res.unshift(head.val);
     head = head.next;
   }
-  return arr;
+  return res;
 };
