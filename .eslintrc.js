@@ -16,4 +16,8 @@ module.exports = {
     'no-console': 0,
     'no-constant-condition': 0,
   },
+  env: {
+    'jest/globals': true,
+  },
+  plugins: ['jest'],
 };
