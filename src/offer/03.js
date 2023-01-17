@@ -2,17 +2,17 @@
  * @param {number[]} nums
  * @return {number}
  */
-const findRepeatNumber = function (nums) {
-  const dict = {};
-
+var findRepeatNumber = function (nums) {
+  const map = {};
   for (let i = 0; i < nums.length; i++) {
-    const element = nums[i];
-    if (dict[element] !== undefined) {
-      return element;
-    } else {
-      dict[element] = element;
+    const cur = nums[i];
+    if (map[cur]) {
+      return cur;
     }
+    map[cur] = true;
   }
+
+  return -1;
 };
 
 const nums = [0, 1, 0];

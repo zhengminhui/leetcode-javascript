@@ -21,15 +21,19 @@ var missingNumber = function (nums) {
 };
 
 // 异或
-// var missingNumber = function (nums) {
-//   var res = nums.length;
-//   for (var i = 0; i < nums.length; i++) {
-//     res ^= i;
-//     res ^= nums[i];
-//     console.log(i, nums[i], res);
-//   }
-//   return res;
-// };
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber2 = function (nums) {
+  // I use 0 as init number, that stuck me for a long time
+  // Should use length, since it filled n number in n-1 length
+  let res = nums.length;
+  for (let i = 0; i < nums.length; i++) {
+    res = res ^ i ^ nums[i];
+  }
+  return res;
+};
 
 const nums = [0, 1, 2, 3, 4, 5, 6, 7, 9];
 // const nums = [0, 1, 3];
