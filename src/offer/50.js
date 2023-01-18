@@ -18,10 +18,10 @@ var firstUniqChar = function (s) {
       return key;
     }
   }
-  return " ";
+  return ' ';
 };
 
 // const s = "abaccdeff"; // "b"
 
-const s = ""; // " "
+const s = ''; // " "
 console.log(firstUniqChar(s));
