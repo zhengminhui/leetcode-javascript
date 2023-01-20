@@ -27,20 +27,22 @@ var isSymmetric1 = function (root) {
 
 var isSymmetric2 = function (root) {
   if (!root) return true;
-  const stack = [root.left, root.right];
-  // 一次入栈一对，再弹出一对
+  const stack = [];
+  stack.push(root.left);
+  stack.push(root.right);
+
   while (stack.length) {
     const right = stack.pop();
     const left = stack.pop();
-    // one of nodes is null
-    if (right === null || left === null) {
-      if (right !== left) {
+    if (left === null || right === null) {
+      if (left !== right) {
         return false;
       }
       continue;
     }
-    if (right.val !== left.val) return false;
-
+    if (left.val !== right.val) {
+      return false;
+    }
     stack.push(left.left);
     stack.push(right.right);
     stack.push(left.right);

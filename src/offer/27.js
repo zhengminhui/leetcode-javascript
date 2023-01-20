@@ -12,9 +12,9 @@
 var mirrorTree = function (root) {
   if (!root) return null;
 
-  let temp = mirrorTree(root.left);
-  root.left = mirrorTree(root.right);
-  root.right = temp;
+  const { left, right } = root;
+  root.left = mirrorTree(right);
+  root.right = mirrorTree(left);
 
   return root;
 };

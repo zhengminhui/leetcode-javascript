@@ -22,13 +22,14 @@
  */
 var isSymmetric = function (root) {
   if (!root) return true;
-  let stack = [];
+  const stack = [];
   stack.push(root.left);
   stack.push(root.right);
+
   while (stack.length) {
     const right = stack.pop();
     const left = stack.pop();
-    if (right === null || left === null) {
+    if (left === null || right === null) {
       if (left !== right) {
         return false;
       }
@@ -46,13 +47,17 @@ var isSymmetric = function (root) {
 };
 
 // 递归
-// var isSymmetric = function (root) {
-//   if (!root) return true;
-//   return isEqual(root.left, root.right);
-// };
+var isSymmetric2 = function (root) {
+  function isEqual(left, right) {
+    if (left === null || right === null) {
+      return left === right;
+    }
+    if (left.val !== right.val) {
+      return false;
+    }
+    return isEqual(left.left, right.right) && isEqual(left.right, right.left);
+  }
 
-// var isEqual = function (left, right) {
-//   if (left === null || right === null) return left === right;
-//   if (left.val !== right.val) return false;
-//   return isEqual(left.left, right.right) && isEqual(left.right, right.left);
-// };
+  if (!root) return true;
+  return isEqual(root.left, root.right);
+};
