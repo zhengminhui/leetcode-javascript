@@ -11,23 +11,28 @@
  */
 var levelOrder = function (root) {
   if (!root) return [];
-  const queue = [];
-  queue.push(root);
+
   const order = [];
+  const queue = [root];
+
   while (queue.length) {
-    let level = [];
-    const len = queue.length;
-    for (let i = 0; i < len; i++) {
-      const cur = queue.shift();
-      level.push(cur.val);
-      if (cur.left) {
-        queue.push(cur.left);
+    const level = [];
+    // 通过 len 来记录当前层级的长度，从而保证后面 enqueue 的，下一次再打印
+    let len = queue.length;
+    while (len) {
+      const node = queue.shift();
+      level.push(node.val);
+
+      if (node.left) {
+        queue.push(node.left);
       }
-      if (cur.right) {
-        queue.push(cur.right);
+      if (node.right) {
+        queue.push(node.right);
       }
+      len -= 1;
     }
     order.push(level);
   }
+
   return order;
 };

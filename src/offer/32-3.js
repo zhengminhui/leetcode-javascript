@@ -14,27 +14,31 @@ var levelOrder = function (root) {
 
   let reverse = false;
   const order = [];
-  const queue = [];
-  queue.push(root);
+  const queue = [root];
 
   while (queue.length) {
-    let arr = [];
-    const len = queue.length;
-    for (let i = 0; i < len; i++) {
-      const cur = queue.shift();
+    let len = queue.length;
+    const level = [];
+    while (len) {
+      const node = queue.shift();
       if (reverse) {
-        arr.push(cur.val);
+        level.unshift(node.val);
       } else {
-        arr.unshift(cur.val);
+        level.push(node.val);
       }
-      cur.right && queue.push(cur.right);
-      cur.left && queue.push(cur.left);
+
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
+
+      len -= 1;
     }
     reverse = !reverse;
-    order.push(arr);
+    order.push(level);
   }
+
   return order;
 };
-
-// const root = [3,9,20,null,null,15,7]
-const root = [1, 2, 3, 4, null, null, 5];

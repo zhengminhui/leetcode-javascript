@@ -9,23 +9,23 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
+//  bfs queue
 var levelOrder = function (root) {
   if (!root) return [];
+  const queue = [root];
   const order = [];
-  const queue = [];
-  queue.push(root);
+
   while (queue.length) {
-    const len = queue.length;
-    for (let i = 0; i < len; i++) {
-      const cur = queue.shift();
-      order.push(cur.val);
-      if (cur.left) {
-        queue.push(cur.left);
-      }
-      if (cur.right) {
-        queue.push(cur.right);
-      }
+    const node = queue.shift();
+    order.push(node.val);
+
+    if (node.left) {
+      queue.push(node.left);
+    }
+    if (node.right) {
+      queue.push(node.right);
     }
   }
+
   return order;
 };
