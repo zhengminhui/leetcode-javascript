@@ -15,6 +15,7 @@ module.exports = {
     'object-curly-newline': 0,
     'no-console': 0,
     'no-constant-condition': 0,
+    'no-restricted-syntax': 0,
   },
   env: {
     'jest/globals': true,

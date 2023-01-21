@@ -3,18 +3,21 @@
  * @return {number}
  */
 var numWays = function (n) {
-  if (n <= 1) return 1;
-  let ways;
-  let pre = 1;
-  let lat = 1;
-  for (let i = 1; i < n; i++) {
-    ways = pre + lat;
-    ways %= 1e9 + 7;
-    pre = lat;
-    lat = ways;
-  }
-  return ways;
-};
+  if (n === 0) return 1;
 
-const n = 100;
-console.log(numWays(n));
+  if (n > 0 && n <= 2) return n;
+
+  let pre = 1;
+  let cur = 2;
+  let res;
+
+  while (n > 2) {
+    res = pre + cur;
+    res %= 1e9 + 7;
+    pre = cur;
+    cur = res;
+    n -= 1;
+  }
+
+  return res;
+};
