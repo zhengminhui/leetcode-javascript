@@ -5,16 +5,17 @@
  * 当前值负责判断是继续累加，还是另起炉灶
  */
 var maxSubArray = function (nums) {
-  if (!nums.length) {
-    return 0;
-  }
-  let max = nums[0];
+  if (!nums.length) return 0;
+
   let sum = nums[0];
+  let max = nums[0];
+
   for (let i = 1; i < nums.length; i++) {
     const cur = nums[i];
-    sum = Math.max(cur, sum + cur);
-    max = Math.max(max, sum);
+    sum = Math.max(cur, cur + sum);
+    max = Math.max(sum, max);
   }
+
   return max;
 };
 

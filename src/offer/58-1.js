@@ -5,13 +5,13 @@
 const reverseWords = function (s) {
   return s
     .trim()
-    .split(" ")
-    .filter((s) => s)
+    .split(' ')
+    .filter((c) => c)
     .reverse()
-    .join(" ");
+    .join(' ');
 };
 
 // const s = "the sky is blue";
 // const s = "  hello world!  ";
-const s = "a good   example";
+const s = 'a good   example';
 console.log(reverseWords(s));
