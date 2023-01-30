@@ -15,10 +15,12 @@
 const getKthFromEnd = function (head, k) {
   let pre = head;
   let lat = head;
+
   while (k) {
-    k -= 1;
     pre = pre.next;
+    k -= 1;
   }
+
   while (pre) {
     pre = pre.next;
     lat = lat.next;

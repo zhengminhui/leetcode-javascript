@@ -4,7 +4,7 @@
  * @return {boolean}
  * 将矩阵左旋 45 度，从右上角元素开始遍历，
  * 则变成一颗类似二叉树的结构，所有较大的在右边，所有较小的在左边
- * 从右上角走到左下角，找到 target，时间 O（m+n）,空间 O(1)
+ * 从右上角走到左下角，找到 target，时间 O(m+n),空间 O(1)
  */
 var searchMatrix = function (matrix, target) {
   if (matrix.length === 0) {

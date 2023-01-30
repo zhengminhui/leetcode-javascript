@@ -7,16 +7,15 @@
  * 从右上角走到左下角，找到 target，时间 O(m+n), 空间 O(1)
  */
 var findNumberIn2DArray = function (matrix, target) {
-  if (matrix.length === 0) {
-    return false;
-  }
+  if (!matrix.length) return false;
+
   const row = matrix.length;
   const col = matrix[0].length;
   let i = 0;
   let j = col - 1;
+
   while (i < row && j >= 0) {
     const cur = matrix[i][j];
-    console.log(cur, i, j);
     if (target > cur) {
       i++;
     } else if (target < cur) {

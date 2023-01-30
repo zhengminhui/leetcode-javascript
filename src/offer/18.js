@@ -17,6 +17,7 @@ const deleteNode = function (head, val) {
   }
   let pre = head;
   let cur = head.next;
+
   while (cur && cur.val !== val) {
     pre = cur;
     cur = cur.next;
@@ -24,5 +25,6 @@ const deleteNode = function (head, val) {
   if (cur.val === val) {
     pre.next = cur.next;
   }
+  // 注意返回 head，这个指针还在头部，pre 已跑到后面去了。
   return head;
 };
