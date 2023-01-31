@@ -11,16 +11,20 @@
  * @return {number}
  */
 var kthLargest = function (root, k) {
-  const stack = [];
   // 首先 dfs 遍历树，从大到小插入数组
-  dfs(root, stack);
-  return stack[k - 1];
+  const res = dfs(root, []);
+  return res[k - 1];
 };
 
-// reverse post oder traversal
 function dfs(root, arr) {
   if (!root) return null;
-  dfs(root.right, arr);
+
+  if (root.right) {
+    dfs(root.right, arr);
+  }
   arr.push(root.val);
-  dfs(root.left, arr);
+  if (root.left) {
+    dfs(root.left, arr);
+  }
+  return arr;
 }

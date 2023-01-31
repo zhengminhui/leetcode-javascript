@@ -36,7 +36,7 @@ function dfs(board, word, i, j, k) {
     return true;
   }
   // 暂时置为空，防止又走到这个位置
-  board[i][j] = "";
+  board[i][j] = '';
   const res =
     dfs(board, word, i - 1, j, k + 1) ||
     dfs(board, word, i + 1, j, k + 1) ||
@@ -47,10 +47,10 @@ function dfs(board, word, i, j, k) {
 }
 
 const board = [
-  ["A", "B", "C", "E"],
-  ["S", "F", "C", "S"],
-  ["A", "D", "E", "E"],
+  ['A', 'B', 'C', 'E'],
+  ['S', 'F', 'C', 'S'],
+  ['A', 'D', 'E', 'E'],
 ];
-const word = "ABCCED";
+const word = 'ABCCED';
 
 console.log(exist(board, word));

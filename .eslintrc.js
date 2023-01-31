@@ -16,6 +16,7 @@ module.exports = {
     'no-console': 0,
     'no-constant-condition': 0,
     'no-restricted-syntax': 0,
+    'operator-linebreak': 0,
   },
   env: {
     'jest/globals': true,
