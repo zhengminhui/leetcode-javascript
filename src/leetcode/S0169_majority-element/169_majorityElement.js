@@ -17,6 +17,8 @@
  * @return {number}
  */
 var majorityElement = function (nums) {
+  // return nums.sort()[Math.floor(nums.length /2)];
+
   let major = nums[0];
   let count = 1;
   for (let i = 1; i < nums.length; i++) {

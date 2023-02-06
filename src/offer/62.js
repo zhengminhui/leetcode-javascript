@@ -13,9 +13,10 @@ var lastRemaining = function (n, m) {
   }
   return ans;
 };
+
 const n = 5;
-const m = 3; //3
+const m = 3; // 3
 
 // const n = 10;
-// const m = 17; //2
+// const m = 17; // 2
 console.log(lastRemaining(n, m));
