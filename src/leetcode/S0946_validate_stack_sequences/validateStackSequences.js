@@ -3,19 +3,23 @@
  * @param {number[]} popped
  * @return {boolean}
  */
+// 模拟入栈，直到找到第一个出栈的数字
+// 找到出栈的数字后，模拟出栈的动作，并向右移动指针
+// 如果发现 stack 最后一个和 popped 出栈的第一个不一致，继续入栈，进入下一个循环。
+// 最后判断 stack 是否为空，空表示模拟圆满完成。
 var validateStackSequences = function (pushed, popped) {
   const stack = [];
-  let count = 0; // 用来记录 popped 的指针
+  let pointer = 0;
+
   for (let i = 0; i < pushed.length; i++) {
-    // 持续入栈，直到找到第一个出栈的数字
     stack.push(pushed[i]);
-    // 找到出栈的数字后，模拟出栈的动作，并向右移动指针
-    while (stack.length && stack[stack.length - 1] === popped[count]) {
+
+    while (stack.length && stack[stack.length - 1] === popped[pointer]) {
       stack.pop();
-      count += 1;
+      pointer += 1;
     }
-    // 如果发现 stack 最后一个和 popped 出栈的第一个不一致，继续入栈，进入下一个循环。
   }
+
   return stack.length === 0;
 };
 

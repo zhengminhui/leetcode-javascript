@@ -1,10 +1,14 @@
 /**
  * @param {number[][]} matrix
  * @return {number[]}
+ * 分边遍历，左右，上下，右左，下上；
+ * 每边遍历完后，需要向下一个方向前进一步，以防止角上的数字多打印一遍。
+ * 先写4个遍历 for 循环，再写指针的加减，最后再写跳出条件。
+ * 不要想的太复杂，判断的条件只有两个，top 不能大于 down，left 不能大于 right
  */
 var spiralOrder = function (matrix) {
-  const order = [];
-  if (!matrix.length) return order;
+  const res = [];
+  if (!matrix.length) return res;
 
   let top = 0;
   let down = matrix.length - 1;
@@ -13,33 +17,45 @@ var spiralOrder = function (matrix) {
 
   while (true) {
     for (let i = left; i <= right; i++) {
-      order.push(matrix[top][i])
+      res.push(matrix[top][i]);
     }
-    top += 1;
+    top++;
     if (top > down) {
       break;
     }
     for (let i = top; i <= down; i++) {
-      order.push(matrix[i][right]);
+      res.push(matrix[i][right]);
     }
-    right -= 1;
+    right--;
     if (left > right) {
       break;
     }
     for (let i = right; i >= left; i--) {
-      order.push(matrix[down][i]);
+      res.push(matrix[down][i]);
     }
-    down -= 1;
+    down--;
     if (top > down) {
       break;
     }
     for (let i = down; i >= top; i--) {
-      order.push(matrix[i][left]);
+      res.push(matrix[i][left]);
     }
-    left += 1;
+    left++;
     if (left > right) {
       break;
     }
   }
-  return order;
+  return res;
 };
+
+// const matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+// const matrix = [
+//   [1, 2, 3, 4],
+//   [5, 6, 7, 8],
+//   [9, 10, 11, 12],
+// ];
+const matrix = [
+  [2, 5, 8],
+  [-1, 0, 4],
+];
+console.log(spiralOrder(matrix));
