@@ -1,21 +1,26 @@
 /**
  * @param {number[]} nums
  * @return {boolean}
- * 判断是否是个5连顺子，排序之后，max-min < 5
  */
+// 排序后，最大-最小 <= 5 才能满足，比如 1，2，3，4，5
+// 或者 0，2，3，4，5。
+// 如果大于 5，怎么样也凑不成顺子。
+// 如果有相同的牌，也不能凑成顺子。
 var isStraight = function (nums) {
+  // joker pointer
+  let j = 0;
   nums = nums.sort((a, b) => a - b);
-  let joker = 0;
-  for (let i = 0; i < 4; i++) {
+
+  for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 0) {
-      joker++;
+      // 记录有多少个大小王
+      j++;
     } else if (nums[i] === nums[i + 1]) {
-      // 有牌重复
       return false;
     }
   }
   // 用joker 做为index，因为排序后0被放到前面了，一个王则最小牌从1号位开始，两个王则从二号位开始
-  return nums[4] - nums[joker] < 5;
+  return nums[4] - nums[j] < 5;
 };
 
 // const nums = [1, 2, 3, 4, 6];

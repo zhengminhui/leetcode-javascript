@@ -20,15 +20,19 @@
  * Time O(n) (Space O(1) don't consider recursive.)
  *
  */
+// 如果pq 都比root 大，则向右找
+// 如果pq都比root 小，则向左找
+// 如果一大一小，则返回root
 var lowestCommonAncestor = function (root, p, q) {
   if (!root || p === root || q === root) {
     return root;
   }
+
   if (p.val > root.val && q.val > root.val) {
     return lowestCommonAncestor(root.right, p, q);
-  } else if (p.val < root.val && q.val < root.val) {
-    return lowestCommonAncestor(root.left, p, q);
-  } else {
-    return root;
   }
+  if (p.val < root.val && q.val < root.val) {
+    return lowestCommonAncestor(root.left, p, q);
+  }
+  return root;
 };
