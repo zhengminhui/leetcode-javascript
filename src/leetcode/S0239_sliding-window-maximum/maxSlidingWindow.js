@@ -1,7 +1,7 @@
 /**
- * @param {number[]} nums
- * @param {number} k
- * @return {number[]}
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
  * 为了可以同时弹出队首和队尾的元素，使用双端队列；满足单调性的双端队列，称作单调队列。
  * deque 单调递减，记录当前窗口的最大值
  * deque[0] 头， deque[deque.length -1] 队尾
