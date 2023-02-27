@@ -1,6 +1,6 @@
 /**
  * Definition for isBadVersion()
- * 
+ *
  * @param {integer} version number
  * @return {boolean} whether the version is bad
  * isBadVersion = function(version) {
@@ -11,8 +11,6 @@
 /**
  * @param {function} isBadVersion()
  * @return {function}
- * trick: when get the mid number, don't use (low + high)/2, will cause overflow, 
- * should use low + (high - low)/2;
  */
 var solution = function (isBadVersion) {
   /**
@@ -20,10 +18,10 @@ var solution = function (isBadVersion) {
    * @return {integer} The first bad version
    */
   return function (n) {
-    var low = 0;
-    var high = n;
+    let low = 0;
+    let high = n;
     while (low < high) {
-      var mid = Math.floor(low + (high - low) / 2);
+      const mid = Math.floor(low + (high - low) / 2);
       if (isBadVersion(mid)) {
         high = mid;
       } else {
