@@ -7,7 +7,7 @@ var isPalindrome = function (s) {
   // var ns = s.split("").reverse().join("")
   // return s === ns
 
-  // \/W\ match any char that not alphanumeric 
+  // \/W\ match any char that not alphanumeric
   var s = s.replace(/\W/g, '').toLowerCase();
   var head = 0;
   var tail = s.length - 1;
