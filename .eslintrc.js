@@ -18,6 +18,7 @@ module.exports = {
     'no-restricted-syntax': 0,
     'operator-linebreak': 0,
     'no-shadow': 0,
+    camelcase: 0,
   },
   env: {
     'jest/globals': true,

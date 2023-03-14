@@ -16,7 +16,7 @@
 // dp[i][1] = max(dp[i-1][1]，-price[i])
 // 分析发现，今天的持有 dp[i][1] 和不持有 dp[i][0]，只和前一天的 dp[i-1][1] 和不持有 dp[i-1][0] 有关，可以将 2 维数组转换为常数空间。
 // dp_i_0 = 0; dp_i_1 = -Infinity.
-var maxProfitDP = function (prices) {
+var maxProfit = function (prices) {
   if (!prices.length) return 0;
   const n = prices.length;
   let dp_i_0 = 0;
@@ -27,34 +27,4 @@ var maxProfitDP = function (prices) {
     dp_i_1 = Math.max(dp_i_1, -prices[i]);
   }
   return dp_i_0;
-};
-
-/**
- * @param {number[]} prices
- * @return {number}
- * find the largest sum of contiguous ints in an array
- * if prices[i] less than buy, assign this value to buy and keep going.
- * Else keep campareing balance and difference of buy and price[i].
- * time O(n) space O(1).
- */
-var maxProfit = function (prices) {
-  if (prices.length === 0) return 0;
-  // var buy = prices[0];
-  // var balance = 0;
-  // for (var i = 1; i < prices.length; i++) {
-  //   if (prices[i] < buy) {
-  //     buy = prices[i];
-  //   }
-  //   balance = Math.max(balance, prices[i] - buy);
-  // }
-  // return balance;
-
-  // kadane's algorithm
-  let cur = 0;
-  let max = 0;
-  for (let i = 1; i < prices.length; i++) {
-    cur = Math.max(0, (cur += prices[i] - prices[i - 1]));
-    max = Math.max(cur, max);
-  }
-  return max;
 };
