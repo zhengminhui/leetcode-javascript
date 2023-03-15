@@ -28,9 +28,9 @@ test('array with 1 element', () => {
   expect(searchRange(test, target)).toStrictEqual(res);
 });
 
-// test('array with 2 elements', () => {
-//   const test = [1, 1];
-//   const target = 1;
-//   const res = [0, 1];
-//   expect(searchRange(test, target)).toStrictEqual(res);
-// });
+test('array with 2 elements', () => {
+  const test = [1, 1];
+  const target = 1;
+  const res = [0, 1];
+  expect(searchRange(test, target)).toStrictEqual(res);
+});

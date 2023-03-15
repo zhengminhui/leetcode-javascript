@@ -54,5 +54,3 @@ function findRightBound(nums, target) {
 
   return right;
 }
-
-module.exports = searchRange;

@@ -19,6 +19,7 @@ module.exports = {
     'operator-linebreak': 0,
     'no-shadow': 0,
     camelcase: 0,
+    'no-lonely-if': 0,
   },
   env: {
     'jest/globals': true,
