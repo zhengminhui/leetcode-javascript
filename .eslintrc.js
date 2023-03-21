@@ -20,6 +20,8 @@ module.exports = {
     'no-shadow': 0,
     camelcase: 0,
     'no-lonely-if': 0,
+    'prefer-destructuring': 0,
+    'consistent-return': 0,
   },
   env: {
     'jest/globals': true,
