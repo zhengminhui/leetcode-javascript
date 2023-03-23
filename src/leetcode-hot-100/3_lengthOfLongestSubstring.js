@@ -6,23 +6,29 @@
 var lengthOfLongestSubstring = function (s) {
   if (!s || !s.length) return 0;
 
-  const map = new Map();
+  const window = new Map();
   let maxLength = 0;
   let left = 0;
+  let right = 0;
 
-  for (let right = 0; right < s.length; right++) {
-    const cur = s[right];
-    // 如果遇到重复的，只能从重复的下一位开始重新计算长度。
-    // 之前我的思路时clear map，在这种情况就不行了。比如"dvdf"
-    if (map.has(cur) && map.get(cur) >= left) {
-      left = map.get(cur) + 1;
+  while (right < s.length) {
+    const char = s[right];
+    right++;
+    if (window.has(char)) {
+      window.set(char, window.get(char) + 1);
+    } else {
+      window.set(char, 1);
     }
-
-    // 用当前 index 作为value
-    map.set(cur, right);
-    maxLength = Math.max(maxLength, right - left + 1);
+    // 如果 window 的某个 char 大于 1，说明有重复的，这个时候开始剔除左端点
+    while (window.get(char) > 1) {
+      const dChar = s[left];
+      left++;
+      if (window.has(dChar)) {
+        window.set(dChar, window.get(dChar) - 1);
+      }
+    }
+    maxLength = Math.max(maxLength, right - left);
   }
-
   return maxLength;
 };
 
