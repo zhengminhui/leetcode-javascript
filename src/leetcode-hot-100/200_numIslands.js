@@ -22,7 +22,7 @@ var numIslands = function (grid) {
     if (i < 0 || j < 0 || i >= row || j >= col || grid[i][j] === '0') {
       return;
     }
-    //  走过之后，置为零，防止重复计算。
+    // 走过之后，置为零，防止重复计算。
     grid[i][j] = '0';
 
     dfs(i - 1, j);
