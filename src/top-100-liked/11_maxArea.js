@@ -20,8 +20,3 @@ var maxArea = function (height) {
   }
   return max;
 };
-
-// const height = [1,8,6,2,5,4,8,3,7];
-// const height = [1, 1];
-const height = [1, 3, 2, 5, 25, 24, 5];
-console.log(maxArea(height));

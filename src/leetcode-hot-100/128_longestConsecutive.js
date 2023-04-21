@@ -10,13 +10,13 @@ var longestConsecutive = function (nums) {
     const cur = nums[i];
     if (!map.has(cur)) {
       // 获取左，右邻居序列的长度
+      // 新序列的长度，并记录，检查是不是新的最大值
+      // 最后更新，新序列左右端的长度。
       const preLen = map.get(cur - 1) || 0;
       const nextLen = map.get(cur + 1) || 0;
-      // 新序列的长度，并记录，检查是不是新的最大值
       const curLen = preLen + 1 + nextLen;
       map.set(cur, curLen);
       max = Math.max(max, curLen);
-      // 更新新序列左右端的长度。
       map.set(cur - preLen, curLen);
       map.set(cur + nextLen, curLen);
     }

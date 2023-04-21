@@ -30,9 +30,3 @@ var lengthOfLongestSubstring = function (s) {
   }
   return max;
 };
-
-// const s = 'pwwkew';
-// const s = 'abcabcbb';
-// const s = ' ';
-const s = 'dvdf';
-console.log(lengthOfLongestSubstring(s));
