@@ -23,6 +23,7 @@ module.exports = {
     'no-lonely-if': 0,
     'prefer-destructuring': 0,
     'consistent-return': 0,
+    'prefer-template': 0,
   },
   env: {
     'jest/globals': true,
