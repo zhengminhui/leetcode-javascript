@@ -3,6 +3,7 @@
  * @param {string} word2
  * @return {number}
  */
+// 0630： base case ，如果字符相等，需要的步骤等于左上角的步骤。如果不等，取决于上，左，左上的最小值 + 1.
 var minDistance = function (word1, word2) {
   const len1 = word1.length;
   const len2 = word2.length;
@@ -26,11 +27,7 @@ var minDistance = function (word1, word2) {
       if (word1[i - 1] === word2[j - 1]) {
         dp[i][j] = dp[i - 1][j - 1];
       } else {
-        dp[i][j] = Math.min(
-          dp[i - 1][j] + 1,
-          dp[i][j - 1] + 1,
-          dp[i - 1][j - 1] + 1,
-        );
+        dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
       }
     }
   }
