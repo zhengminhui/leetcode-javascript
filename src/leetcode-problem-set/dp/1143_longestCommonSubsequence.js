@@ -13,10 +13,11 @@ var longestCommonSubsequence = function (text1, text2) {
   const dp = [];
   // 构建二维数组
   for (let i = 0; i <= len1; i++) {
-    dp[i] = [];
+    const arr = [];
     for (let j = 0; j <= len2; j++) {
-      dp[i].push(0);
+      arr.push(0);
     }
+    dp.push(arr);
   }
   // 注意 i, j 从 1 开始遍历，方便直观理解长度，但是去 char 时是从 0 开始，所以是 charAt(i-1)
   for (let i = 1; i <= len1; i++) {
