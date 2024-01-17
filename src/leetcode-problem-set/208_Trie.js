@@ -7,9 +7,6 @@ var Trie = function () {
  * @return {void}
  */
 // note0601: nodes= nodes[char] 相当于 json 进入更深的一层
-// { a : { p : { p: { l: { e: { isEnd: true}}}}}}
-// 如果没有字符，就创建一个 kv object，结束是加一个 boolean 值。
-// 这样就能判断 apple 和 app 的区别。
 Trie.prototype.insert = function (word) {
   let nodes = this.children;
   for (const char of word) {
@@ -43,7 +40,7 @@ Trie.prototype.searchPrefix = function (prefix) {
  */
 Trie.prototype.search = function (word) {
   const node = this.searchPrefix(word);
-  return node && Boolean(node.isEnd);
+  return node && node.isEnd !== undefined;
 };
 
 /**

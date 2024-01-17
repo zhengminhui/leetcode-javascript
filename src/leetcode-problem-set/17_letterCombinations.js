@@ -3,8 +3,6 @@
  * @return {string[]}
  */
 var letterCombinations = function (digits) {
-  if (!digits.length) return [];
-
   const dict = {
     2: 'abc',
     3: 'def',
@@ -17,6 +15,7 @@ var letterCombinations = function (digits) {
   };
   const res = [];
   const path = [];
+  if (!digits.length) return res;
 
   function backtracking(index, path) {
     if (path.length === digits.length) {
