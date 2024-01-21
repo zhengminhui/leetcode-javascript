@@ -8,12 +8,11 @@ var countAsterisks = function (s) {
   let res = 0;
   let p = 0;
   let inside = false;
-  while (p <= s.length) {
-    const cur = s[p];
-    if (cur === '*' && !inside) {
+  while (p < s.length) {
+    if (s[p] === '*' && !inside) {
       res++;
     }
-    if (cur === '|') {
+    if (s[p] === '|') {
       inside = !inside;
     }
     p++;
